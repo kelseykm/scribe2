@@ -1,0 +1,18 @@
+<header>
+  {{>titlebar}}
+  {{#if my.nav}}
+  {{>navigation}}
+  {{/if}}
+</header>
+<main>
+  <section>
+    {{>navContentSeparator}}
+  </section>
+  <section>
+    <a href="/subjects" class="back-to-subjects">Go back to subjects</a>
+    <div class="not-found">
+      <p class="not-found-status">404</p>
+      <p class="not-found-explanation">Page not found</p>
+    </div>
+  </section>
+</main>

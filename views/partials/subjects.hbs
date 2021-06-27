@@ -1,0 +1,43 @@
+<div class="subjects-container">
+  <p class="subjects__header">Subjects</p>
+  {{#each my.subjects}}
+  <div class="subject-container">
+    <div class="subject-info">
+      <p class="subject-name">{{subject_name}}</p>
+      <div class="subject-actions">
+        <div class="subject-toggle" title="Show sections"></div>
+        <div class="section-add" title="Add section"><div></div></div>
+        <div class="subject-edit" title="Edit subject name">
+          <img src="/images/edit_white.png" alt="">
+        </div>
+        <div class="subject-delete" title="Delete subject">
+          <img src="/images/dustbin_white.png" alt="">
+        </div>
+      </div>
+    </div>
+    {{#each sections}}
+    <div class="subject__section">
+      <div class="section-info">
+        <p class="subject-section__name">{{section_name}}</p>
+        <div class="section-actions">
+          <div class="section-toggle" title="Show topics"></div>
+          <div class="topic-add" title="Add topic"><div></div></div>
+          <div class="section-edit" title="Edit section name">
+            <img src="/images/edit.png" alt="">
+          </div>
+          <div class="section-delete" title="Delete section">
+            <img src="/images/dustbin.png" alt="">
+          </div>
+        </div>
+      </div>
+      {{#each topics}}
+      <div class="section__topic">
+        <a href="{{{ generateTopicLink '/subjects/sections/topics/' topic_name topic_id }}}" class="section-topic__name">{{topic_name}}</a>
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+  </div>
+  {{/each}}
+  <button type="button" class="subject-add btn">Add Subject</button>
+</div>

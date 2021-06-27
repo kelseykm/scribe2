@@ -1,0 +1,30 @@
+<header>
+  {{>titlebar}}
+</header>
+<main>
+  <section>
+    {{>navContentSeparator}}
+    {{>errorsuccess}}
+  </section>
+
+  <section>
+    <form class="login-form">
+      <div class="email-container">
+        <label for="email">Email</label>
+        <input type="email" name="email" aria-label="email" required autocomplete="email">
+      </div>
+      <div class="password-container">
+        <label for="password">Password</label>
+        <div class="password-sub-container">
+          <input type="password" name="password" aria-label="password" required autocomplete="current-password">
+          <button type="button" aria-label="show-password" class="show-password" title="Show password">
+            <img class="show-password__image" src="/images/show-password.png" alt="show-password">
+          </button>
+        </div>
+      </div>
+      </div>
+      <button class="login-button btn" type="submit">Log in</button>
+      <p class="signup-invite">Don't have an account? <a href="/accounts/sign-up" class="signup-link">Sign up</a></p>
+    </form>
+  </section>
+</main>

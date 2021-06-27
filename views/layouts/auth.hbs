@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="The only way to take notes in a modern world">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{my.title}}</title>
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <style media="screen">
+    @font-face {
+      font-family: "DancingScript";
+      src: url(/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf);
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Antonio";
+      src: url(/fonts/Antonio/Antonio-VariableFont_wght.ttf);
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  {{#if my.login}}
+  <link rel="stylesheet" href="/css/login.min.css">
+  {{else}}
+  <link rel="stylesheet" href="/css/signup.min.css">
+  {{/if}}
+</head>
+<body>
+
+  {{{body}}}
+
+  <div class="spacer" style="flex-grow:1"></div>
+
+  {{>footer}}
+
+  {{#if my.login}}
+  <script src="/js/login.min.js" charset="utf-8" defer></script>
+  {{else}}
+  <script src="/js/signup.min.js" charset="utf-8" defer></script>
+  {{/if}}
+</body>
+</html>

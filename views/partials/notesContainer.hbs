@@ -1,0 +1,75 @@
+<div class="notes-container">
+  {{#with my.topic}}
+  <div class="notes-topic">
+    <p class="topic-name">{{topic_name}}</p>
+    <div class="topic-actions">
+      <button title="Edit topic name" aria-label="edit topic name" type="button" class="edit-topic"><img src="/images/edit_white.png" alt=""></button>
+      <button title="Delete topic" aria-label="delete topic" type="button" class="delete-topic"><img src="/images/dustbin_white.png" alt=""></button>
+    </div>
+  </div>
+
+  <a href="/subjects" class="back-to-subjects">Go back to subjects</a>
+  <div class="saved-notes">
+    <div class="text-notes">
+      <p class="text-notes__header">Text notes</p>
+      {{#each notes}}
+        {{#if text_note_entry}}
+        <div class="text-note">
+          <p class="creation-time">{{creation_time}}</p>
+          <button class="edit-note edit-text" title="Edit note" aria-label="Edit note">
+            <img src="/images/edit.png" alt="" class="edit-note__image">
+          </button>
+          <button class="delete-note" title="Delete note" aria-label="Delete note">
+            <img src="/images/dustbin.png" alt="" class="delete-note__image">
+          </button>
+          <p class="note-name">{{entry_name}}</p>
+          <div class="note-body">
+            {{{getTextNote note_security_key text_note_entry}}}
+          </div>
+        </div>
+        {{/if}}
+      {{/each}}
+    </div>
+    <div class="voice-notes">
+      <p class="voice-notes__header">Voice notes</p>
+      {{#each notes}}
+      {{#if voice_note_entry}}
+        <div class="voice-note">
+          <p class="creation-time">{{creation_time}}</p>
+          <button class="edit-note edit-voice" title="Edit note" aria-label="Edit note name">
+            <img src="/images/edit.png" alt="" class="edit-note__image">
+          </button>
+          <button class="delete-note" title="Delete note" aria-label="Delete note">
+            <img src="/images/dustbin.png" alt="" class="delete-note__image">
+          </button>
+          <p class="note-name">{{entry_name}}</p>
+          <div class="audio-player-container">
+            <audio src="{{{generateVoiceNoteLink note_security_key voice_note_entry}}}" class="audio__player"></audio>
+            <div class="audio__seek-bar">
+              <div class="audio__seek"></div>
+            </div>
+            <div class="audio__time">
+              <span class="current-time">00:00</span>/<span class="duration">00:00</span>
+            </div>
+            <div class="audio-actions">
+              <button class="audio__play_pause" type="button" title="Play/Pause" aria-label="Play/Pause">
+                <div>
+                  <img src="/images/play_pause.png">
+                </div>
+              </button>
+              <button class="audio__stop" type="button" aria-label="Stop" title="Stop">
+                <div>
+                  <img src="/images/stop.png">
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+      {{/each}}
+    </div>
+  </div>
+  <form class="text-notes-form" action="/subjects/sections/topics/notes/add" method="post"></form>
+  <form class="voice-notes-form" action="/subjects/sections/topics/notes/add" method="post"></form>
+  {{/with}}
+</div>

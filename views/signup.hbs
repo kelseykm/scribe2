@@ -1,0 +1,42 @@
+<header>
+  {{>titlebar}}
+</header>
+<main>
+  <section>
+    {{>navContentSeparator}}
+    {{>errorsuccess}}
+  </section>
+
+  <section>
+    <form class="signup-form">
+      <div class="username-container">
+        <label for="username">Username</label>
+        <input type="text" name="username" aria-label="username" required autocomplete="username">
+      </div>
+      <div class="email-container">
+        <label for="email">Email</label>
+        <input type="email" name="email" aria-label="email" required autocomplete="email">
+      </div>
+      <div class="password-container">
+        <label for="password">Password</label>
+        <div class="password-sub-container">
+          <input type="password" name="password" aria-label="password" required autocomplete="new-password">
+          <button type="button" aria-label="show password" class="show-password" title="Show password">
+            <img class="show-password__image" src="/images/show-password.png" alt="show-password">
+          </button>
+        </div>
+      </div>
+      <div class="confirm-password-container">
+        <label for="confirm_password">Confirm Password</label>
+        <div class="confirm-password-sub-container">
+          <input type="password" name="confirm_password" aria-label="confirm password" required autocomplete="new-password">
+          <button type="button" aria-label="show confirm password" class="show-confirm-password" title="Show password">
+            <img class="show-confirm-password__image" src="/images/show-password.png" alt="show-password">
+          </button>
+        </div>
+      </div>
+      <button aria-label="submit sign up form" class="signup-button" type="submit">Sign Up</button>
+      <p class="login-invite">Already have an account? <a href="/accounts/log-in" class="login-link">Log in</a></p>
+    </form>
+  </section>
+</main>
