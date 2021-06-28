@@ -21,13 +21,16 @@
 * Put the passphrase of the private key generated in the ```.env``` file.
 * Provide a *session secret* in the ```.env``` file.
 * Run ```npm run build``` to build the application.
+* The application uses ports 80 and 443, so run the following command as root or with sudo to allow node access to priviledged ports:
+  ```
+  setcap 'cap_net_bind_service=+ep' [PATH TO NODE]
+  ```
+  Replace the ```[PATH TO NODE]``` with the path to your local node. If you don't know it, the command ```which node``` or ```type node``` will help.
+  Make sure the path points to the actual node file and not a symlink.
 
 ### **Start up**
 * To start the app, ```cd``` into the directory with the app and run ```npm run start```
 * In your browser, navigate to ```https://localhost```
-
-### ***Additional comments***
-* If your operating system requires you to run as root to be able to use priviledged ports (1-1024), and you do not wish to run node as root, you may change the default ports in the ```.env``` file and redirect all requests to ports 443 and 80 to the new ports (using iptables, or your preferred firewall).
 
 ###### *Demo video*
 [![Alternate Text](./demo_video/thumbnail.png)](https://youtu.be/042gBdWzMg0 "scribe2 demo")
