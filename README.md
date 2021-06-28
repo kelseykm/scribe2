@@ -21,7 +21,7 @@
 * Put the passphrase of the private key generated in the ```.env``` file.
 * Provide a *session secret* in the ```.env``` file.
 * Run ```npm run build``` to build the application.
-* The application uses ports 80 and 443, so run the following command as root or with sudo to allow node access to priviledged ports:
+* FOR LINUX USERS ==> The application uses ports 80 and 443, so run the following command as root or with sudo to allow node access to priviledged ports:
   ```
   setcap 'cap_net_bind_service=+ep' [PATH TO NODE]
   ```
