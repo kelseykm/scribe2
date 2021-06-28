@@ -30,7 +30,4 @@
 * If your operating system requires you to run as root to be able to use priviledged ports (1-1024), and you do not wish to run node as root, you may change the default ports in the ```.env``` file and redirect all requests to ports 443 and 80 to the new ports (using iptables, or your preferred firewall).
 
 ###### *Demo video*
-* The video didn't come out as smooth as I'd hoped, but its clear enough for a demonstration of some of the app's features.
-
-
-
+[![Alternate Text](./demo_video/thumbnail.png)](https://youtu.be/042gBdWzMg0 "scribe2 demo")
