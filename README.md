@@ -31,7 +31,7 @@
 ### **Start up**
 * To start the app, ```cd``` into the directory containing the ```package.json``` file and run ```npm run start```
 * In your browser, navigate to ```https://localhost``` or ```https://127.0.0.1```
-* If your browser shows you a warning that your connection is not secure, it's okay. It's because you're using a self signed certificate. Click on ```Advanced``` and then click on ```Proceeed```
+* If your browser shows you a warning that your connection is not secure, it's okay. It's because you're using a self signed certificate. Click on ```Advanced``` and then click on ```Proceed```
 
 ###### *Demo video*
 [![Alternate Text](./demo_video/thumbnail.png)](https://youtu.be/042gBdWzMg0 "scribe2 demo")
