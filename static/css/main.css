@@ -988,6 +988,12 @@ u {
   color: var(--background-color);
 }
 
+.note-body u,
+.note-body li ol,
+.note-body li ul {
+  font-size: 1em;
+}
+
 .creation-time {
   position: absolute;
   max-width: max-content;
