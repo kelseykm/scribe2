@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js",
     "build": "webpack --mode production --node-env production --config ./webpack.pre.config.js && webpack --mode production --node-env production --config ./webpack.post.config.js"
   },
@@ -17,6 +17,7 @@
     "dotenv": "^9.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.0",
+    "express-minify-html": "^0.12.0",
     "express-session": "^1.17.1",
     "multer": "^1.4.2",
     "sqlite3": "^5.0.2"

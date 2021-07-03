@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const multer = require('multer');
 const exphbs = require('express-handlebars');
+const minifyHTML = require('express-minify-html');
 const compression = require('compression');
 const dotenv = require('dotenv');
 const connectSqlite3 = require('connect-sqlite3');
@@ -48,6 +49,16 @@ app.set('view engine', '.hbs');
 
 //Middleware
 app.use(compression());
+app.use(minifyHTML({
+  override: true,
+  exception_url: false,
+  htmlMinifier: {
+    removeComments: true,
+    collapseWhitespace: true,
+    minifyJS: true,
+    minifyCSS: true,
+  }
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(multer({}).none());
