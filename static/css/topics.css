@@ -575,8 +575,20 @@
     max-width: 90%;
   }
 
+  .notes-topic {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
   .topic-name {
     font-size: 2em;
+    grid-row: 2/3;
+    justify-self: center;
+  }
+
+  .topic-actions {
+    grid-row: 1/2;
+    justify-self: flex-end;
   }
 
   .saved-notes {
