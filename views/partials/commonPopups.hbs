@@ -1,0 +1,51 @@
+<div class="confirm-action-popup" style="transform: translate(-50%, -50%) scale(0);">
+  <p class="confirm-action-popup__question">Are you sure?</p>
+  <div class="confirm-action-popup__btns">
+    <button type="button" class="confirm-action-popup-btn__yes btn" aria-label="yes">Yes</button>
+    <button type="button" class="confirm-action-popup-btn__cancel btn" aria-label="cancel">Cancel</button>
+  </div>
+</div>
+
+<form class="changeusername-popup" style="transform: translate(-50%, -50%) scale(0);">
+  <label for="username" class="changeusername-popup__label">Change username:</label>
+  <input aria-label="username" type="text" class="changeusername-popup__text" name="username" required autocomplete="username">
+  <div class="changeusername-popup__btns">
+    <button type="submit" class="username-popup-btn__ok btn" aria-label="ok">OK</button>
+    <button type="button" class="username-popup-btn__cancel btn" aria-label="cancel">Cancel</button>
+  </div>
+</form>
+
+<form class="changepassword-popup" style="transform: translate(-50%, -50%) scale(0);">
+  <p class="changepassword-popup__label">Change password</p>
+  <div class="current-password-container">
+    <label for="current_password">Enter current password</label>
+    <div class="current-password-sub-container">
+      <input aria-label="current password" type="password" class="changepassword-popup__text" name="current_password" required autocomplete="current-password">
+      <button type="button" aria-label="show-password" class="show-current-password" title="Show password">
+        <img class="show-current-password__image" src="/images/show-password.png" alt="show-password">
+      </button>
+    </div>
+  </div>
+  <div class="new-password-container">
+    <label for="new_password">Enter new password</label>
+    <div class="new-password-sub-container">
+      <input aria-label="new password" type="password" class="changepassword-popup__text" name="new_password" required autocomplete="new-password">
+      <button type="button" aria-label="show-password" class="show-new-password" title="Show password">
+        <img class="show-new-password__image" src="/images/show-password.png" alt="show-password">
+      </button>
+    </div>
+  </div>
+  <div class="confirm-password-container">
+    <label for="confirm_password">Confirm new password</label>
+    <div class="confirm-password-sub-container">
+      <input aria-label="confirm new password" type="password" class="changepassword-popup__text" name="confirm_password" required autocomplete="new-password">
+      <button type="button" aria-label="show-password" class="show-confirm-password" title="Show password">
+        <img class="show-confirm-password__image" src="/images/show-password.png" alt="show-password">
+      </button>
+    </div>
+  </div>
+  <div class="changepassword-popup__btns">
+    <button type="submit" class="password-popup-btn__ok btn" aria-label="ok">OK</button>
+    <button type="button" class="password-popup-btn__cancel btn" aria-label="cancel">Cancel</button>
+  </div>
+</form>

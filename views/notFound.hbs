@@ -7,9 +7,17 @@
 <main>
   <section>
     {{>navContentSeparator}}
+    {{#if my.username}}
+    {{>errorSuccess}}
+    {{>commonPopups}}
+    {{/if}}
   </section>
   <section>
+    {{#if my.username}}
     <a href="/subjects" class="back-to-subjects">Go back to subjects</a>
+    {{else}}
+    <a href="/subjects" class="go-to-login">Go to login page</a>
+    {{/if}}
     <div class="not-found">
       <p class="not-found-status">404</p>
       <p class="not-found-explanation">Page not found</p>

@@ -203,9 +203,9 @@ router.get('/', (req, res) => {
 
 router.get('*', (req, res) => {
   res.status(404).render('notFound', {
+    layout: 'notFoundLayout',
     my: {
       nav: true,
-      topic: true,
       showBread: true,
       title: 'Scribe - 404',
       username: req.session.user.username,

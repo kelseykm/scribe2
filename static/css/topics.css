@@ -1,0 +1,646 @@
+/* BODY */
+.back-to-subjects {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  text-decoration-style: dotted;
+  text-underline-offset: 0.22em;
+  font-family: var(--primary-font);
+  margin: 1em;
+}
+
+.back-to-subjects:hover,
+.back-to-subjects:focus {
+  color: var(--accent-color);
+  text-decoration-color: var(--primary-color);
+}
+
+/* POPUPS */
+.edit-topics-popup {
+  background-color: var(--popup-background);
+  width: 20em;
+  height: 10em;
+  border-radius: 0.28em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 6;
+  transition: transform 250ms ease-in-out;
+}
+
+.edit-topics-popup__label {
+  font-family: var(--secondary-font);
+  color: var(--accent-color);
+  font-size: 2em;
+  border-bottom: 0.06em solid var(--background-color);
+  margin-bottom: 0.5em;
+}
+
+.edit-topics-popup__text {
+  border: none;
+  outline: none;
+  height: 2em;
+  width: 70%;
+  border-radius: 0.28em;
+  box-shadow: 0 0 0.17em 0.11em var(--accent-color);
+  font-size: 1em;
+  font-family: var(--primary-font);
+  text-align: center;
+}
+
+.edit-topics-popup__btns {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.edit-topics-popup__btns button + button {
+  margin-left: 3em;
+}
+
+.edit-topics-popup-btn__ok, .edit-topics-popup-btn__cancel {
+  background-color: var(--background-color);
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+.edit-topics-popup-btn__ok:focus, .edit-topics-popup-btn__cancel:focus,
+.edit-topics-popup-btn__ok:hover, .edit-topics-popup-btn__cancel:hover {
+  box-shadow: 0 0 0.17em 0.11em var(--accent-color);
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+/*** NOTES ***/
+.notes-topic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.topic-name {
+  color: var(--primary-color);
+  font-family: var(--secondary-font);
+  font-size: 2.5em;
+  border-bottom: 3px solid var(--accent-color);
+  max-width: max-content;
+  text-align: center;
+}
+
+.topic-actions {
+  position: absolute;
+  right: 0;
+  margin-right: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topic-actions button + button {
+  margin-left: 0.5em;
+}
+
+.edit-topic,
+.delete-topic {
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.edit-topic img,
+.delete-topic img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.notes-container {
+  width: 100%;
+}
+
+/* SAVED NOTES */
+.saved-notes {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.text-notes, .voice-notes {
+  border-radius: 0.28em;
+  margin: 1em;
+  box-shadow: 0 0 0 0.11em var(--primary-color),
+    0 0 10.11em 0.33em var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2em 2em;
+  background-color: var(--notes-container-color);
+  height: fit-content;
+}
+
+.text-notes {
+  width: 63%;
+}
+
+.voice-notes {
+  width: 25%;
+}
+
+.text-notes__header, .voice-notes__header {
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  max-width: max-content;
+  margin: 0.5em;
+}
+
+.text-note, .voice-note {
+  width: 100%;
+  border-radius: 0.28em;
+  background-color: var(--note-color);
+  margin: 1em;
+  box-shadow: 0 0 0 0.11em var(--primary-color),
+    0 0 10.11em 0.33em var(--shadow-color);
+  position: relative;
+}
+
+.text-note {
+  padding: 2em;
+  word-wrap: break-word;
+}
+
+.voice-note {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note-name {
+  font-family: var(--secondary-font);
+  font-size: 1.8em;
+  border-bottom: 0.09em solid var(--accent-color);
+  max-width: max-content;
+  margin: 0 auto 0.25em;
+  text-align: center;
+  padding: 0 0.17em;
+  word-break: break-all;
+}
+
+.note-body * {
+  font-family: var(--secondary-font);
+  font-size: 1.4em;
+  text-align: left;
+  text-underline-offset: 0.17em;
+  word-break: break-all;
+}
+
+.note-body li {
+  font-size: 1em;
+}
+
+.note-body li::marker {
+  color: var(--background-color);
+}
+
+.note-body u,
+.note-body li ol,
+.note-body li ul {
+  font-size: 1em;
+}
+
+.creation-time {
+  position: absolute;
+  max-width: max-content;
+  top: 0;
+  left: 0;
+  font-family: var(--primary-font);
+  font-size: 0.80em;
+  color: var(--background-color);
+}
+
+.edit-note {
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 0.17em;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 0;
+  right: 1.5em;
+  margin: 0.17em;
+}
+
+.edit-note__image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.delete-note {
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 0.17em;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.17em;
+}
+
+.delete-note__image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.audio-player-container {
+  width: 90%;
+  border-radius: 0.28em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio__seek-bar {
+  width: 90%;
+  height: 0.5em;
+  border-radius: 0.28em;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 0.11em var(--accent-color);
+  position: relative;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.audio__seek {
+  position: absolute;
+  border-radius: 0.28em;
+  background-color: var(--background-color);
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0.5em;
+}
+
+.audio__time {
+  margin: 0.25em;
+  font-family: var(--primary-font);
+  color: var(--background-color);
+}
+
+.audio__time span {
+  font-family: var(--primary-font);
+  color: black;
+}
+
+.audio-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em;
+}
+
+.audio-actions button + button {
+  margin-left: 3em;
+}
+
+.audio-actions > button  {
+  border: none;
+  outline: none;
+  background-color: unset;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  transition: box-shadow 350ms ease;
+}
+
+.audio-actions > button:hover,
+.audio-actions > button:focus {
+  box-shadow: 0 0 0 0.17em var(--primary-color),
+        0 0 0 0.28em var(--accent-color);
+}
+
+.audio-actions > button > div {
+  width: 100%;
+  height: 100%;
+}
+
+.audio-actions > button > div img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+/* TEXT NOTES */
+.text-notes-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.entry-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+}
+
+.entry-name {
+  border: none;
+  outline: none;
+  height: 2em;
+  border-radius: 0.28em;
+  box-shadow: 0 0 0.17em 0.11em var(--accent-color);
+  font-family: var(--primary-font);
+  font-size: 1em;
+  text-align: center;
+  margin-left: 0.5em;
+}
+
+.entry-name-label {
+  text-transform: uppercase;
+  font-family: var(--primary-font);
+  font-size: 1.25em;
+  color: var(--primary-color);
+}
+
+.text-notes-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notes-cancel {
+  margin: 1em;
+  text-transform: uppercase;
+  font-family: var(--primary-font);
+  color: var(--accent-color);
+  background-color: var(--primary-color);
+  padding: 0.5em 0.5em;
+  letter-spacing: 0.11em;
+  border-radius: 0.28em;
+}
+
+.notes-cancel:hover, .notes-cancel:focus {
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 0.11em var(--accent-color),
+              0 0 0 0.22em var(--primary-color);
+}
+
+.notes-save {
+  margin: 1em;
+  text-transform: uppercase;
+  font-family: var(--primary-font);
+  color: var(--accent-color);
+  background-color: var(--primary-color);
+  padding: 0.5em 0.5em;
+  letter-spacing: 0.11em;
+  border-radius: 0.28em;
+}
+
+.notes-save:hover, .notes-save:focus {
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 0.11em var(--accent-color),
+              0 0 0 0.22em var(--primary-color);
+}
+
+.add-notes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.add-text-notes-container,
+.add-voice-notes-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+.add-text-note,
+.add-voice-note {
+  background-color: var(--primary-color);
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0.5em 1em;
+  transition: box-shadow 350ms ease;
+  overflow: hidden;
+}
+
+.add-text-note img{
+  max-height: 65%;
+  max-width: 65%;
+}
+
+.add-voice-note img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.add-text-note:focus-within, .add-voice-note:focus-within,
+.add-text-note:hover, .add-voice-note:hover {
+  box-shadow: 0 0 0 0.11em var(--accent-color),
+              0 0 0 0.22em var(--primary-color);
+}
+
+.add-text-notes-container > p,
+.add-voice-notes-container > p {
+  text-transform: uppercase;
+  color: var(--background-color);
+  font-family: var(--primary-font);
+  background-color: var(--primary-color);
+  position: absolute;
+  right: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  width: max-content;
+  display: inline-block;
+  padding: 0.28em;
+  border-radius: 0.28em;
+  box-shadow: 0 0 0 0.11em var(--accent-color);
+  transition: transform 250ms ease;
+}
+
+.add-text-note:focus-within ~ p, .add-voice-note:focus-within ~ p,
+.add-text-note:hover ~ p, .add-voice-note:hover ~ p {
+  transform: scaleX(1);
+  transition: transform 100ms ease;
+  transition-delay: 200ms;
+}
+
+/* AUDIO NOTES */
+.voice-notes-form {
+  display: grid;
+  place-items: center;
+  margin-bottom: 2em;
+}
+
+.audio-entry-container {
+  background-color: var(--accent-color);
+  border-radius: 0.28em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.recording-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-record-button {
+  outline: none;
+  border: none;
+  background: none;
+  margin: 1em;
+}
+
+.audio-record-button > div {
+  height: 2em;
+  width: 2em;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.22em var(--primary-color);
+  transition: border-radius 350ms ease;
+  cursor: pointer;
+}
+
+.audio-record-button.recording > div {
+  border-radius: 0.06em;
+}
+
+.recording-info {
+  text-transform: uppercase;
+  font-family: var(--primary-font);
+  font-size: 1.25em;
+  color: var(--primary-color);
+  margin: 1em;
+}
+
+.audio-actions-container audio {
+  margin-top: 1em;
+}
+
+.audio-actions__btns {
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-actions__btns button + button{
+  margin-left: 3em;
+}
+
+.audio-btn__discard, .audio-btn__save {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 0.25em 0.5em;
+}
+
+.audio-btn__discard:focus, .audio-btn__save:focus,
+.audio-btn__discard:hover, .audio-btn__save:hover {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+/* PHONES */
+@media only screen and (max-width: 767px) {
+  .edit-topics-popup {
+    max-width: 90%;
+  }
+
+  .topic-name {
+    font-size: 2em;
+  }
+
+  .saved-notes {
+    flex-direction: column;
+  }
+
+  .text-notes, .voice-notes {
+    padding: 0 1em 1em;
+    width: 75%;
+  }
+
+  .note-name {
+    font-size: 1.8em;
+  }
+
+  .add-text-note,
+  .add-voice-note {
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  .add-text-note:focus-within, .add-voice-note:focus-within,
+  .add-text-note:hover, .add-voice-note:hover {
+    box-shadow: 0 0 0 0.11em var(--accent-color),
+                0 0 0 0.22em var(--primary-color);
+  }
+
+  .add-text-note img {
+    max-height: 70%;
+    max-width: 70%;
+  }
+
+  .text-notes-form,
+  .voice-notes-form {
+    margin: 0 4em 0 1em;
+  }
+}
+
+/* TABLETS */
+@media only screen and (min-width: 767px) and (max-width: 1023px) {
+  .saved-notes {
+    flex-direction: column;
+  }
+
+  .text-notes, .voice-notes {
+    width: 80%;
+  }
+
+  .text-notes-form,
+  .voice-notes-form {
+    margin: 0 6em 0 2em;
+  }
+}
+
+/* LARGE DISPLAYS */
+@media only screen and (min-width: 1400px) {
+  .topic-name {
+    border-bottom: 5px solid var(--accent-color);
+  }
+}
+
+/* 4K DISPLAYS */
+@media only screen and (min-width: 1999px) {
+  .topic-name {
+    border-bottom: 9px solid var(--accent-color);
+  }
+}

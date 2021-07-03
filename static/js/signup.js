@@ -148,29 +148,24 @@ signupForm.addEventListener('submit', event => {
 
   generateThrobber();
 
-  import('axios').then(axios => {
-    axios = axios.default;
-    
-    axios.post('/accounts/sign-up', form)
-    .then(res => {
-      removeThrobber();
-      if (res.data.status === 200) {
-        normalizeForm({ values: true, boxshadows: true });
-        window.location.href = '/';
-      }
-      else {
-        normalizeForm({ boxshadows: true });
-        createErrorSuccess(res.data.message);
-      }
-    })
-    .catch(err => {
-      removeThrobber();
+  axios.post('/accounts/sign-up', form)
+  .then(res => {
+    removeThrobber();
+    if (res.data.status === 200) {
+      normalizeForm({ values: true, boxshadows: true });
+      window.location.href = '/';
+    }
+    else {
       normalizeForm({ boxshadows: true });
-      createErrorSuccess(errSignupFail);
-      console.error(err);
-    });
+      createErrorSuccess(res.data.message);
+    }
+  })
+  .catch(err => {
+    removeThrobber();
+    normalizeForm({ boxshadows: true });
+    createErrorSuccess(errSignupFail);
+    console.error(err);
   });
-
 });
 
 if (errorSuccessClose)

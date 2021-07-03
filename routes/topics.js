@@ -129,10 +129,10 @@ router.get('/:topic', (req, res) => {
           }
         });
       } else res.status(404).render('notFound', {
+        layout: 'notFoundLayout',
         my: {
           nav: true,
           title: 'Scribe - 404',
-          topic: true,
           showBread: true,
           username: req.session.user.username,
         }

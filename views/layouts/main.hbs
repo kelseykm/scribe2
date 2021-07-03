@@ -7,7 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{my.title}}</title>
   <link rel="shortcut icon" href="/images/favicon.ico">
-  <link rel="stylesheet" href="/css/main.min.css">
+  {{#if my.topic}}
+  <link rel="stylesheet" href="/css/topics.min.css">
+  {{else}}
+  <link rel="stylesheet" href="/css/subjects.min.css">
+  {{/if}}
   <style media="screen">
     @font-face {
       font-family: "DancingScript";
@@ -31,9 +35,13 @@
   <div class="spacer" style="flex-grow:1"></div>
 
   {{>footer}}
+
+  <script src="/js/axios/axios.min.js" charset="utf-8" defer></script>
   {{#if my.topic}}
   <script src="/js/ckeditor/ckeditor.js" charset="utf-8" defer></script>
+  <script src="/js/topics.min.js" charset="utf-8"></script>
+  {{else}}
+  <script src="/js/subjects.min.js" charset="utf-8"></script>
   {{/if}}
-  <script src="/js/main.min.js" charset="utf-8" defer></script>
 </body>
 </html>
