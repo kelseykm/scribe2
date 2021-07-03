@@ -60,7 +60,7 @@ app.use(minifyHTML({
   }
 }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(multer({}).none());
 app.use(session({
   store: new SQLiteStore({ db: ':memory:' }),
