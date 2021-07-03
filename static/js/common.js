@@ -342,7 +342,7 @@ changeUsernamePopup.addEventListener('submit', event => {
     return;
   }
 
-  if (cleanInput.length > 26) {
+  if (cleanInput.length > 30) {
     if (!blockList.includes(changeUsernamePopup))
     blockList.push(changeUsernamePopup);
     createErrorSuccess(errUsernameLong);

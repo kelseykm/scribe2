@@ -355,7 +355,7 @@ sectionsPopup.addEventListener('submit', event => {
     return;
   }
 
-  if (cleanInput.length > 26) {
+  if (cleanInput.length > 30) {
     if (!blockList.includes(sectionsPopup))
     blockList.push(sectionsPopup);
     createErrorSuccess(errSectionLong);
@@ -463,7 +463,7 @@ topicsPopup.addEventListener('submit', event => {
     return;
   }
 
-  if (cleanInput.length > 26) {
+  if (cleanInput.length > 30) {
     if (!blockList.includes(topicsPopup))
     blockList.push(topicsPopup);
     createErrorSuccess(errTopicLong);
@@ -565,7 +565,7 @@ subjectsPopup.addEventListener('submit', event => {
     createErrorSuccess(errNoSubject);
     return;
   }
-  if (cleanInput.length > 26) {
+  if (cleanInput.length > 30) {
     if (!blockList.includes(subjectsPopup))
     blockList.push(subjectsPopup);
     createErrorSuccess(errSubjectLong);
@@ -648,7 +648,7 @@ editSubjectsPopup.addEventListener('submit', event => {
     return;
   }
 
-  if (cleanInput.length > 26) {
+  if (cleanInput.length > 30) {
     if (!blockList.includes(editSubjectsPopup))
     blockList.push(editSubjectsPopup);
     createErrorSuccess(errSubjectLong);
@@ -784,7 +784,7 @@ editSectionsPopup.addEventListener('submit', event => {
     return;
   }
 
-  if (cleanInput.length > 26) {
+  if (cleanInput.length > 30) {
     if (!blockList.includes(editSectionsPopup))
     blockList.push(editSectionsPopup);
     createErrorSuccess(errSectionLong);

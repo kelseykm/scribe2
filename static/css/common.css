@@ -212,6 +212,7 @@ u {
   font-family: var(--secondary-font);
   font-size: 2em;
   color: var(--accent-color);
+  text-align: center;
 }
 
 .account-actions {
