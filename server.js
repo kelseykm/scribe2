@@ -76,9 +76,9 @@ app.get('/', (req, res) => {
 app.get('*', (req, res) => {
   let loggedIn = req.session.user ? true : false;
   res.status(404).render('notFound', {
+    layout: 'notFoundLayout',
     my: {
       nav: loggedIn,
-      topic: loggedIn,
       showBread: loggedIn,
       title: 'Scribe - 404',
       username: loggedIn,
