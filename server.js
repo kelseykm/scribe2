@@ -67,7 +67,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  genid: req => crypto.createHash('sha256').update(crypto.randomBytes(512)).digest('hex'),
+  genid: () => crypto.createHash('sha256').update(crypto.randomBytes(512)).digest('hex'),
   cookie: {
     httpOnly: true,
     secure: true,

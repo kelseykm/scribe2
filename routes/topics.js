@@ -75,14 +75,14 @@ router.post('/delete', (req, res) => {
         let entryType = row['text_note_entry'] ? 'text_note_entry' : 'voice_note_entry';
         switch (entryType) {
           case 'text_note_entry':
-          fs.rm(path.join(textNotesDir, row['text_note_entry']), err => {
-            if (err) console.error(err)
-          });
-          break;
+            fs.rm(path.join(textNotesDir, row['text_note_entry']), err => {
+              if (err) console.error(err)
+            });
+            break;
           case 'voice_note_entry':
-          fs.rm(path.join(voiceNotesDir, row['voice_note_entry']), err => {
-            if (err) console.error(err)
-          });
+            fs.rm(path.join(voiceNotesDir, row['voice_note_entry']), err => {
+              if (err) console.error(err)
+            });
         }
       }
 
