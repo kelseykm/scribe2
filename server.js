@@ -4,6 +4,7 @@ const multer = require('multer');
 const exphbs = require('express-handlebars');
 const minifyHTML = require('express-minify-html');
 const compression = require('compression');
+const helmet = require('helmet');
 const dotenv = require('dotenv');
 const connectSqlite3 = require('connect-sqlite3');
 const path = require('path');
@@ -48,6 +49,9 @@ app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
 
 //Middleware
+app.use(helmet({
+  contentSecurityPolicy: false,
+}));
 app.use(compression());
 app.use(minifyHTML({
   override: true,
@@ -65,6 +69,7 @@ app.use(multer({}).none());
 app.use(session({
   store: new SQLiteStore({ db: ':memory:' }),
   secret: process.env.SESSION_SECRET,
+  name: 'SeId',
   resave: false,
   saveUninitialized: true,
   genid: () => crypto.createHash('sha256').update(crypto.randomBytes(512)).digest('hex'),
