@@ -41,7 +41,8 @@ router.post('/log-in', (req, res) => {
       if (!authorized) return res.json({ status: 401, message: 'Wrong password' });
 
       let noteSecurityKeyDecryptor = await generateNoteSecurityKeyDecryptor(req.body['password'], row['note_security_salt']);
-      let noteSecurityKey = aesCfbCipher.decrypt(noteSecurityKeyDecryptor, row['encrypted_note_security_key']);
+      let noteSecurityKey = aesCfbCipher.decryptKey(noteSecurityKeyDecryptor, row['encrypted_note_security_key']);
+      noteSecurityKey = Buffer.from(noteSecurityKey, 'hex').toString('binary');
 
       req.session.user = {
         username: row['username'],
@@ -79,7 +80,7 @@ router.post('/sign-up', (req, res) => {
       let noteSecuritySalt = crypto.randomBytes(32).toString('hex');
       let noteSecurityKeyDecryptor = await generateNoteSecurityKeyDecryptor(req.body['password'], noteSecuritySalt);
       let noteSecurityKey = crypto.randomBytes(32).toString('hex');
-      let encryptedNoteSecurityKey = aesCfbCipher.encrypt(noteSecurityKeyDecryptor, noteSecurityKey);
+      let encryptedNoteSecurityKey = aesCfbCipher.encryptKey(noteSecurityKeyDecryptor, noteSecurityKey);
 
       let hashedPassword = await hash(req.body['password']);
 
@@ -103,7 +104,7 @@ router.post('/sign-up', (req, res) => {
               req.session.user = {
                 username: row['username'],
                 id: row['id'],
-                noteSecurityKey
+                noteSecurityKey: Buffer.from(noteSecurityKey, 'hex').toString('binary')
               };
               res.json({ status: 200, message: 'Signed up' });
             }
@@ -162,7 +163,7 @@ router.post('/change-password', (req, res) => {
         res.json({ status: 401, message: 'Wrong current password. Operation not authorized' });
         else {
           let noteSecurityKeyDecryptor = await generateNoteSecurityKeyDecryptor(req.body['new_password'], row['note_security_salt']);
-          let encryptedNoteSecurityKey = aesCfbCipher.encrypt(noteSecurityKeyDecryptor, req.session.user.noteSecurityKey);
+          let encryptedNoteSecurityKey = aesCfbCipher.encryptKey(noteSecurityKeyDecryptor, req.session.user.noteSecurityKey);
 
           let hashedPassword = await hash(req.body['new_password']);
 
