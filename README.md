@@ -16,7 +16,7 @@
 
 ### **Installation**
 * Clone the repository with git so that updating the app in future will be easier for you. Run ```git clone https://github.com/kelseykm/scribe2.git```.
-* Ensure you have Node installed.
+* Ensure you have the latest _current_ Node installed (not the LTS version).
 * ```cd``` into the directory containing the ```package.json``` file and run ```npm ci``` to install all the dependencies.
 * Make a directory called ```certs```, ```cd``` into it and run ```openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365```
 * Put the passphrase of the private key generated in the ```.env``` file. The passphrase is the one that openssl asked for when you ran the openssl command.
