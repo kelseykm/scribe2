@@ -40,6 +40,7 @@
 * Run ```git pull``` inside the directory with the ```package.json``` periodically to ensure you install all updates, bugfixes and new features.
 * Everytime you execute the command mentioned in the point above, please run ```npm ci```, to install/remove any dependencies that may have been added/removed in the aforementioned updates.
 * Also make sure to run ```npm run build``` after the running the command above, for the same reason.
+* As from version 2.1.0, if you were using the older scribe versions, please run ```node cryptoMigrator.js``` for each user to migrate your encrypted notes to the new encryption cipher
 
 ###### *Demo video*
 [![Alternate Text](./demo_video/thumbnail.png)](https://youtu.be/042gBdWzMg0 "scribe2 demo")
