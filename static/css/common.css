@@ -261,7 +261,7 @@ u {
 }
 
 .recent-topic {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: var(--primary-font);
   color: var(--background-color);
   border-bottom: 0.06em solid var(--accent-color);

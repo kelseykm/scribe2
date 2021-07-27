@@ -187,36 +187,26 @@
 }
 
 .note-name {
-  font-family: var(--secondary-font);
+  font-family: var(--primary-font);
   font-size: 1.8em;
   border-bottom: 0.09em solid var(--accent-color);
   max-width: max-content;
   margin: 0 auto 0.25em;
   text-align: center;
   padding: 0 0.17em;
-  word-break: break-all;
+  word-break: break-word;
 }
 
-.note-body * {
-  font-family: var(--secondary-font);
-  font-size: 1.4em;
+.note-body {
+  font-family: var(--primary-font);
   text-align: left;
   text-underline-offset: 0.17em;
-  word-break: break-all;
-}
-
-.note-body li {
-  font-size: 1em;
+  word-break: break-word;
+  font-size: 1.2em;
 }
 
 .note-body li::marker {
   color: var(--background-color);
-}
-
-.note-body u,
-.note-body li ol,
-.note-body li ul {
-  font-size: 1em;
 }
 
 .creation-time {
