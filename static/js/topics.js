@@ -268,6 +268,7 @@ function generateVoiceNote(createdAt, entryName, audioURL) {
   let d = document.createElement('div');
   let i = document.createElement('img');
   i.src = '/images/play_pause.png';
+  i.setAttribute('alt', '');
   d.appendChild(i);
   audioPlayPause.appendChild(d);
   audioPlayPause.addEventListener('click', () => {
@@ -283,6 +284,7 @@ function generateVoiceNote(createdAt, entryName, audioURL) {
   let d2 = document.createElement('div');
   let i2 = document.createElement('img');
   i2.src = '/images/stop.png';
+  i2.setAttribute('alt', '');
   d2.appendChild(i2);
   audioStop.appendChild(d2);
   audioStop.addEventListener('click', () => {

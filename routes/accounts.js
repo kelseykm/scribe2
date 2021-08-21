@@ -162,13 +162,14 @@ router.post('/change-password', (req, res) => {
         if (!authorized)
         res.json({ status: 401, message: 'Wrong current password. Operation not authorized' });
         else {
-          let noteSecurityKeyDecryptor = await generateNoteSecurityKeyDecryptor(req.body['new_password'], row['note_security_salt']);
+          let noteSecuritySalt = crypto.randomBytes(32).toString('hex');
+          let noteSecurityKeyDecryptor = await generateNoteSecurityKeyDecryptor(req.body['new_password'], noteSecuritySalt);
           let encryptedNoteSecurityKey = aesCfbCipher.encryptKey(noteSecurityKeyDecryptor, req.session.user.noteSecurityKey);
 
           let hashedPassword = await hash(req.body['new_password']);
 
-          db.run('UPDATE users SET password_hash = ?, encrypted_note_security_key = ? WHERE id = ?',
-          [ hashedPassword, encryptedNoteSecurityKey, req.session.user.id ], err => {
+          db.run('UPDATE users SET password_hash = ?, note_security_salt = ?, encrypted_note_security_key = ? WHERE id = ?',
+          [ hashedPassword, noteSecuritySalt, encryptedNoteSecurityKey, req.session.user.id ], err => {
             if (!err) res.json({ status: 200, message: 'Password changed' });
             else {
               console.error(err)

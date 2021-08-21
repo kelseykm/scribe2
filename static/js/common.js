@@ -8,6 +8,7 @@ const errUsernameChangeFail = 'Failed to change username, please try again';
 const errUsernameInUse = 'Username is already in use';
 const errNoUsername = 'No username entered';
 const errUsernameLong = 'Username is too long';
+const errPasswordUnmatch = "Passwords do not match";
 const titleBar = document.querySelector('.title-bar');
 const bread = document.querySelector('.bread');
 const burgers = document.querySelectorAll('.burger');
