@@ -51,7 +51,7 @@ const aesCfbCipher = {
   ALGO: 'aes-256-cfb',
   IV_LENGTH: 16,
   KEY_LENGTH,
-  encryptKey: function (key, clearMesg) {
+  encryptKey(key, clearMesg) {
     key = Buffer.from(key, 'hex');
     let iv = crypto.randomBytes(this.IV_LENGTH);
     const cipher = crypto.createCipheriv(this.ALGO, key, iv);
@@ -61,18 +61,18 @@ const aesCfbCipher = {
 
     return iv.toString('hex') + encMesg;
   },
-  decryptKey: function (key, encMass) {
+  decryptKey(key, encMass) {
     key = Buffer.from(key, 'hex');
     let iv = Buffer.from(encMass.substr(0, this.IV_LENGTH * 2), 'hex');
     let encMesg = encMass.substr(this.IV_LENGTH * 2);
 
     const decipher = crypto.createDecipheriv(this.ALGO, key, iv);
 
-    let decMesg = decipher.update(encMesg, 'hex', 'utf8');
-    decMesg += decipher.final('utf8');
+    let decMesg = decipher.update(encMesg, 'hex', 'binary');
+    decMesg += decipher.final('binary');
     return decMesg;
   },
-  encrypt: function (key, clearMesg) {
+  encrypt(key, clearMesg) {
     key = Buffer.from(key, 'binary');
     clearMesg = Buffer.from(clearMesg, 'binary');
 
@@ -86,7 +86,7 @@ const aesCfbCipher = {
 
     return encMesgChunks.join('');
   },
-  decrypt: function (key, encMass) {
+  decrypt(key, encMass) {
     key = Buffer.from(key, 'binary');
     encMass = Buffer.from(encMass, 'binary');
 

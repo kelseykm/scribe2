@@ -27,7 +27,7 @@ let hbs = exphbs.create({
   defaultLayout: 'main',
   extname: '.hbs',
   helpers: {
-    generateVoiceNoteLink: (noteSecurityKey, fileName) => {
+    generateVoiceNoteLink(noteSecurityKey, fileName) {
       try {
         return aesCfbCipher.decrypt(
           noteSecurityKey,
@@ -40,7 +40,7 @@ let hbs = exphbs.create({
         return require('./utils').serverErrorAudio;
       }
     },
-    getTextNote: (noteSecurityKey, fileName) => {
+    getTextNote(noteSecurityKey, fileName) {
       try {
         return aesCfbCipher.decrypt(
           noteSecurityKey,
@@ -53,7 +53,7 @@ let hbs = exphbs.create({
         return '<p>Unfortunately, a server error has occured and your text note could not be retrieved</p>';
       }
     },
-    generateTopicLink: (linkPath, topicName, id) => {
+    generateTopicLink(linkPath, topicName, id) {
       topicName = topicName.toString().toLowerCase().replaceAll(' ', '-');
       return `${linkPath}${encodeURIComponent(topicName)}?id=${id.toString()}`;
     }

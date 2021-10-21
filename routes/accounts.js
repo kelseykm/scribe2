@@ -42,7 +42,6 @@ router.post('/log-in', (req, res) => {
 
       let noteSecurityKeyDecryptor = await generateNoteSecurityKeyDecryptor(req.body['password'], row['note_security_salt']);
       let noteSecurityKey = aesCfbCipher.decryptKey(noteSecurityKeyDecryptor, row['encrypted_note_security_key']);
-      noteSecurityKey = Buffer.from(noteSecurityKey, 'hex').toString('binary');
 
       req.session.user = {
         username: row['username'],
@@ -79,7 +78,7 @@ router.post('/sign-up', (req, res) => {
 
       let noteSecuritySalt = crypto.randomBytes(32).toString('hex');
       let noteSecurityKeyDecryptor = await generateNoteSecurityKeyDecryptor(req.body['password'], noteSecuritySalt);
-      let noteSecurityKey = crypto.randomBytes(32).toString('hex');
+      let noteSecurityKey = crypto.randomBytes(32);
       let encryptedNoteSecurityKey = aesCfbCipher.encryptKey(noteSecurityKeyDecryptor, noteSecurityKey);
 
       let hashedPassword = await hash(req.body['password']);
