@@ -85,12 +85,11 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   name: 'SeId',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   genid: () => crypto.createHash('sha256').update(crypto.randomBytes(512)).digest('hex'),
   cookie: {
     httpOnly: true,
     secure: true,
-    saveUninitialized: false,
   }
 }));
 app.use(express.static(path.join(process.env.PWD, 'public')));
