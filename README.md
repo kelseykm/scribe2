@@ -34,7 +34,7 @@
 * To start the app, ```cd``` into the directory containing the ```package.json``` file and run ```npm run start```
 * In your browser, navigate to ```https://localhost``` or ```https://127.0.0.1```
 * If your browser shows you a warning that your connection is not secure, it's okay. It's because you're using a self signed certificate. Click on ```Advanced``` and then click on ```Proceed```
-* NB: I highly recommend you use the **latest version** of Google Chrome browser for the best experience. Avoid Firefox. If you come across any thing that doesn't seem to work while you're using firefox or another browser, please switch to Google Chrome and see if the observed behaviour repeats before reporting it as a bug.
+* NB: I highly recommend you use the **latest version** of Google Chrome browser for the best experience. If you come across any thing that doesn't seem to work while you're using another browser, please switch to Google Chrome and see if the observed behaviour repeats before reporting it as a bug.
 
 ### **Maintenance and updates**
 * Run ```git pull``` inside the directory with the ```package.json``` periodically to ensure you install all updates, bugfixes and new features.
