@@ -4,8 +4,8 @@ const fs = require('fs');
 const crypto = require('crypto');
 
 const router = express.Router();
-const db = require('../database');
-const { aesCfbCipher } = require('../cryptography');
+const db = require('../lib/database');
+const { aesCfbCipher } = require('../lib/cryptography');
 
 const textNotesDir = path.join(process.env.PWD, 'db', 'text_notes');
 const voiceNotesDir = path.join(process.env.PWD, 'db', 'voice_notes');

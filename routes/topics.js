@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../database');
+const db = require('../lib/database');
 const path = require('path');
 const fs = require('fs');
 

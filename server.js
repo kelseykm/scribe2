@@ -12,7 +12,7 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 const crypto = require('crypto');
-const { aesCfbCipher } = require('./cryptography');
+const { aesCfbCipher } = require('./lib/cryptography');
 
 dotenv.config();
 const app = express();
@@ -37,7 +37,7 @@ let hbs = exphbs.create({
         );
       } catch (err) {
         console.error(err);
-        return require('./utils').serverErrorAudio;
+        return require('./utils/serverErrorAudio').serverErrorAudio;
       }
     },
     getTextNote(noteSecurityKey, fileName) {

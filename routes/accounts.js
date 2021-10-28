@@ -2,8 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const db = require('../database');
-const { hash, verify, generateNoteSecurityKeyDecryptor, aesCfbCipher } = require('../cryptography');
+const db = require('../lib/database');
+const { hash, verify, generateNoteSecurityKeyDecryptor, aesCfbCipher } = require('../lib/cryptography');
 
 const router = express.Router();
 
